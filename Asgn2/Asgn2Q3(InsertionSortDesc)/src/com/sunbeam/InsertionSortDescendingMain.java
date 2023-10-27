@@ -2,30 +2,21 @@ package com.sunbeam;
 
 import java.util.Arrays;
 
-public class BubbleSortMain {
-	public static int bubbleSort(int[] arr, int size) {
+public class InsertionSortDescendingMain {
+
+	public static int insertionSortDescending(int[] arr, int size) {
 		int count = 0;
-		int iteration = 0;
-		int flag;
 		for (int i = 1; i < size; i++) {
-			iteration++;
-			flag = 0;
-			for (int j = 0; j < size - i; j++) {
+			int temp = arr[i];
+			int j = i - 1;
+			while (j >= 0 && arr[j] < temp) {
+				arr[j + 1] = arr[j];
+				j--;
 				count++;
-				if (arr[j] > arr[j + 1]) {
-					int temp = arr[j];
-					arr[j] = arr[j + 1];
-					arr[j + 1] = temp;
-					flag = 1;
-				}
 			}
-			if (flag == 0)
-				break;
-
+			arr[j + 1] = temp;
 		}
-		System.out.println("The number of iteration : " + iteration);
 		return count;
-
 	}
 
 	public static void main(String[] args) {
@@ -33,10 +24,9 @@ public class BubbleSortMain {
 		int arr[] = { 33, 22, 66, 55, 44, 11 };
 //		int arr[] = { 11, 22, 33, 44, 55, 66 };
 		System.out.println("before sorting :" + Arrays.toString(arr));
-		int count = bubbleSort(arr, arr.length);
+		int count = insertionSortDescending(arr, arr.length);
 		System.out.println("after sorting :" + Arrays.toString(arr));
 		System.out.println("Number of comparisions : " + count);
-
 	}
 
 }
