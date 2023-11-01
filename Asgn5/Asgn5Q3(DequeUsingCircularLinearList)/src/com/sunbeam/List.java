@@ -51,29 +51,7 @@ public class List {
 			head = nn;
 		}
 	}
-	public void addLast(int value) {
-		//1. create node
-		Node nn = new Node(value);
-		//2. if list is empty
-		if(isEmpty()) {
-			//a. add newnode into head
-			head = nn;
-			//b. make list circular
-			head.next = nn;
-			head.prev = nn;
-		}
-		//3. if list is not empty
-		else {
-			//a. add first node into next of newnode
-			nn.next = head;
-			//b. add last node into prev of newnode
-			nn.prev = head.prev;
-			//c. add newnode into next of last node
-			head.prev.next = nn;
-			//d. add newnode into prev of first node
-			head.prev = nn;
-		}
-	}
+
 	public void deleteFirst() {
 		// 1. if list is empty
 		if (isEmpty())
